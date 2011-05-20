@@ -6,6 +6,7 @@
 package tf.api;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -29,6 +30,7 @@ public class Road {
         length = len;
         cars = new HashMap<Car, Integer>();
     }
+    
 
     /**
      * @return Length of road.
@@ -104,6 +106,30 @@ public class Road {
     public Set<Car> getCars() {
         return cars.keySet();
     }
+    
+    
+    /**
+     * @return an array of cars on this road, in ascendant order by the position
+     */
+    public Car[] getCarsInOrder() {
+    	Car[] array = new Car[cars.size()];
+    	int[] positions = new int[cars.size()];
+    	Iterator<Car> it = this.getCars().iterator();
+
+    	for(int total = 0; it.hasNext(); total++) {
+    		Car curr = it.next();
+    		int pos = cars.get(curr);
+    		int i = total-1;
+    		for(; i>=0 && positions[i]>pos; i--) {
+    			array[i+1] = array[i];
+    			positions[i+1] = positions[i];
+    		}
+    		array[i+1] = curr;
+    		positions[i+1] = pos;
+    	}
+    	
+    	return array;
+    }
 
     /**
      * @param c The car must be on this road already.
@@ -117,4 +143,25 @@ public class Road {
         }
         throw new IllegalArgumentException("No such car on this road.");
     }
+
+
+	/**
+	 * Obtains the position of the first car that is before the given position
+	 * 
+	 * @param beforePosition the position of the car should be equal to, or smaller than it.
+	 * @return the position of the car that is the closest to, but before the given position.
+	 * The returned value is between 0 to 8, 9 if no cars.
+	 */
+	public int positionOfClosestCar(int beforePosition) {
+		int minPos = 9;
+		Iterator<Car> it = getCars().iterator();
+		while(it.hasNext()) {
+			int position = cars.get(it.next());
+			if(position <= beforePosition 
+					&& beforePosition - position < minPos) {
+				minPos = beforePosition - position;
+			}
+		}
+		return minPos;
+	}
 }

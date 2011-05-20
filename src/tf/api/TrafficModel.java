@@ -5,9 +5,12 @@
 
 package tf.api;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 /**
  * Represents a displayable traffic model. Captures traffic at any one time.
@@ -40,6 +43,7 @@ public class TrafficModel {
         intersects.put(new Pair(roadSN, roadWE), 49);
         intersects.put(new Pair(roadWE, roadSN), 51);
     }
+    
 
     /**
      * Obtains the position on the road where 2 roads intersection.
@@ -73,6 +77,17 @@ public class TrafficModel {
         throw new NoSuchElementException();
     }
 
+    
+    /**
+     * Obtains all the roads in this traffic model
+     * 
+     * @return	a set of roads
+     */
+    public Set<Road> getRoads() {
+    	Road[] roads = new Road[] {roadNS, roadSN, roadEW, roadWE};
+    	Set<Road> rs = new HashSet<Road>(Arrays.asList(roads));
+    	return rs;
+    }
 
 
     private static class Pair {
