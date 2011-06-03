@@ -1,0 +1,93 @@
+\section{Implementation}
+
+\subsection{Learning Algorithms}
+
+Reinforcement learning is concerned with how to learn a control policy (a mapping from the states of environment to control actions) so as to maximise a cumulative reward signal. Let $s_t$ be the state of the server at time $t$. The controller selects an action $a_t$ from a finite set $A$ as a result of which the system transitions to state $s_{t+1}$ at time $t+1$. The controller earns a reward $r_{t+1}$ for this transition. We implemented Sarsa, Q Learning and a OneRule algorithm as the benchmark.
+
+\subsubsection{Sarsa}
+
+This algorithm is based on the following formula from \cite{Sutton_1998} on page 145.
+
+\begin{equation}
+Q(s_{t},a_{t})\leftarrow Q(s_{t},a_{t}) + \alpha [ r_{t+1}+\gamma Q(s_{t+1},a_{t+1}) - Q(s_{t},a_{t}) ]
+\end{equation}
+
+where $\alpha $ is the learning rate, and $\gamma $ is the discount factor.
+
+Some important implementation details are:
+
+\begin{enumerate}
+\item The 3 timesteps immediately
+after a light switch is not involved in learning (i.e. $Q$ is not
+updated in those 3 timesteps), however the reward is accumulated
+during the 3 timesteps;
+
+\item Sarsa uses the $\epsilon $-greedy policy, so
+the best action is picked with probability $(1-\epsilon )$ and a
+random action is picked with probability $\epsilon $. Picking
+a random action means the light may switch with $50\%$ probability;
+
+\item The $\epsilon $ is not discounted over time, although \cite{Sutton_1998}
+mentions that Sarsa converges with probability 1 to an optimal policy
+only if the policy converges in the limit to the greedy policy (which
+requires $\epsilon $ to converge to 0 in the limit). The reason why
+$\epsilon $ is not discounted is so it can be compared directly with
+QLearningBasic algorithm using the benchmark settings.
+
+\end{enumerate}
+
+\subsubsection{Q Learning}
+
+In Q-Learning~\cite{watkins_qlearning_1992}, the learning agent calculates the quality (or $Q$-value) of a state-action combination, denoted by $Q(s, a)$, from its interaction with the environment using the formula:
+\begin{equation}
+\begin{aligned}
+Q_t(s_t, a_t) &= Q_t(s_t, a_t) + \\
+&\alpha [r_{t+1}) + \gamma max Q_t(s_{t+1}, a) - Q_t(s_t, a_t)]
+\end{aligned}
+\label{equ:qupdate}
+\end{equation}
+
+where $max Q_t(s_{t+1}, a)$ is the maximum $Q$ value of $s_{t+1}$.
+
+The difference between Sarsa and Q Learning is that Sarsa picks the next action according to the $\epsilon $-greedy policy and uses the same action to update the $Q$ values, whereas Q Learning
+picks the action that gives the best $Q$ value for Q value updates, but uses an exploratory action in execution. In other words, the next action to be executed can be different from the action used to update the $Q$ value. Therefore, Sarsa is on-policy, while Q Learning is off-policy.
+
+\subsubsection{OneRule}
+
+Some would argue that this is not a true ``predictive''
+algorithm, more of a ``reactive'' algorithm. This algorithm
+encodes a single rule (which is hard-coded in the source):
+the rule is to change traffic light for a road
+whenever there is a certain number of cars
+waiting on that road. This certain number
+of cars or \emph{threshold} is fixed at 1 in our experiments.
+Whenever a road has this threshold number of cars waiting, the traffic
+signal will change (pending it has waited for 3 time steps already).
+Assuming a road full of cars (except for the intersections) and
+a threshold of 1, this results in an algorithm that lets 3 cars go past north-south
+(and south-north), then alternates to let 3 cars go past east-west (and
+west-east), then alternates to let 3 cars go
+past north-south (and south-north) and so on.
+
+Since this is not a reinforcement learning algorithm, it is
+used for comparison purposes only.
+
+\subsection{Refinements}
+Our refinements aim at two goals: one is to accelerate the learning process by different Q value update strategies; the other is to improve the learning outcomes, that is, to reduce the average waiting time of the cars.
+
+\subsubsection{Eligibility Traces}
+Eligibility traces are one of the basic mechanisms of reinforcement learning for accelerating the learning process. An eligibility trace is a temporary record of the occurrence of an event, such as the visiting of a state or the taking of an action. The trace marks the memory parameters associated with the event as eligible for undergoing learning changes. 
+
+When applying eligibility traces, a problem occurs for off-policy methods such as Q Learning when exploratory actions occur, since we backup over a non-greedy policy. In the implementation, we use Watkins' approach. That is, zero out eligibility trace after a non-greedy action, and do max
+when backing up at first non-greedy choice.
+
+\subsubsection{Boltzmann Distribution}
+We have adopted the policy of drawing the action with probability $p$ from the Boltzmann distribution~\cite{watkins_qlearning_1992}:
+\begin{equation}
+\label{equ:rewardprob}
+p(s, a) = \dfrac {e^{Q_t(s, a) / \tau}} {\sum_{\substack{a^* \in A}} e^{Q_t(s, a^*) / \tau}}
+\end{equation}
+where $p(s, a)$ is the probability of selecting action $a$ in state $s$, and $\tau$ is a temperature parameter that tunes the randomness of selecting the actions. $\tau$ is an annealing factor that is decreased in every iteration thereby reducing randomness as well. When $\tau$ approaches 0, the algorithm becomes a greedy algorithm where the action with highest value is always chosen.
+
+By comparison with $\epsilon $-greedy, the advantage of this Boltzmann distribution policy is that, the probability of choosing an action depends on its Q value. The larger the Q value is, the bigger the chance it gets selected. In $\epsilon $-greedy policy, however, the action with the maximum Q value always gets selected with probability $1-\epsilon$.
+

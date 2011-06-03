@@ -1,0 +1,26 @@
+\section{Quick Tour of the GUI}
+
+To start the GUI, run \verb/java -cp <project JAR file> tf.gui.App/.
+Type in the desired traffic intensity setting in the 2nd text box
+near the bottom of the GUI, then click on the menu item
+\textbf{File} $\rightarrow$ \textbf{Set Simulation Class}. Pick the simulation
+algorithm you want to test,
+then click \textbf{OK} button and a new traffic model will be
+initialised with a default random number seed. This way we can
+pick different algorithms and test them using the same random
+number seed so as to be consistent.
+
+Set the Step Duration (1st text box near bottom of GUI) to 100
+if you want to see the traffic animating, or set it to 0 if
+you want the result as soon as possible. With a timestep
+duration near 0, the GUI will ``skip frames'' to keep up with
+the traffic model changes.
+
+Click the \textbf{File} $\rightarrow$ \textbf{Start Simulation} menu item
+and enter the number of timesteps to simulate continuously. Anything
+more than 1000 will take a few minutes. Then click \textbf{OK}
+button and watch the simulation take place. For debugging,
+we use the \textbf{Next Step} button, which simulate 1 timestep
+per click. For experimentation, the GUI is too slow and not
+required, so we run experiments via the command line using
+the \verb/tf.api.experiment.Main/ class.

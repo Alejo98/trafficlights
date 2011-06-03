@@ -1,0 +1,131 @@
+\section{Results and Discussion}
+
+\begin{description}
+
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.45\textwidth]{algorithm}
+\caption{Best Algorithm}\label{f:algorithm}
+\end{figure}
+
+\item[Fig.~\ref{f:algorithm}]
+Discuss which algorithm is best.
+
+
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.45\textwidth]{eligibility}
+\caption{Eligibility Trace}\label{f:eligibility}
+\end{figure}
+
+\item[Fig.~\ref{f:eligibility}]
+Discuss eligibility trace.
+
+
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.45\textwidth]{intensity}
+\caption{Varying Traffic Intensity}\label{f:intensity}
+\end{figure}
+
+\item[Fig.~\ref{f:intensity}]
+Perhaps unsurprisingly, as the traffic intensity increases from 15\% to
+25\%, we found more cars waiting for green light and the overall performance
+drops. We have used the DensityState3 and DensityState6 at 20\% traffic
+intensity and the performance is similar around 2,000,000 timesteps.
+However, DensityState3 --- having a smaller state space --- starts to overfit
+the traffic patterns whereas DensityState6 --- having a larger state space
+--- continues to converge to optimal. Also, DensityState6 takes longer to
+converge relative to DensityState3, most likely due to the larger state space.
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.45\textwidth]{learningRate}
+\caption{Varying Learning Rate}\label{f:learningRate}
+\end{figure}
+
+\item[Fig.~\ref{f:learningRate}]
+Discuss learning Rate.
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.45\textwidth]{states}
+\caption{Varying State Representation}\label{f:states}
+\end{figure}
+
+\item[Fig.~\ref{f:states}]
+Discuss learning Rate.
+
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.45\textwidth]{epsilon}
+\caption{Varying the $\epsilon $ value}\label{f:epsilon}
+\end{figure}
+
+\item[Fig.~\ref{f:epsilon}]
+This experiment uses the benchmark settings except for the $\epsilon$
+value (`e' in the figure) which is different in each run. For example $e = 0.25$ means
+the QLearningBasic algorithm will explore 25\% of the time.
+Note the $\epsilon$ is not discounted over time.
+Better results are achieved with $\epsilon$ values near 0 but not 0,
+suggesting that exploratory actions
+that are not optimal are adding to the number of cars waiting; so
+the less exploratory actions taken the better. However, some exploration
+is required since $\epsilon =0$ shows that overfitting occurs after
+about 4,600,000 timesteps. This overfitting is most likely due to
+the algorithm finding the optimal action-value function for the traffic
+pattern in the first 4.6 million timesteps, but the traffic patterns
+in the following timesteps are different and the optimal policy is
+no longer the most optimal.
+
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.45\textwidth]{e-soft}
+\caption{Discounting $\epsilon$}\label{f:e-soft}
+\end{figure}
+
+\item[Fig.~\ref{f:e-soft}]
+This figure shows the $\epsilon = 0.05$ result with a discounted
+$\epsilon$ run. The discounted $\epsilon$ run uses the benchmark
+settings (i.e. $\epsilon = 0.1$ initially) and discounting the
+$\epsilon$ by 0.9999999 per timestep (that's seven 9s). The result shows
+that a fixed $\epsilon$ stablises after about 4,300,000 timesteps
+without further improvement; but the $\epsilon$-discounted algorithm
+converges to the optimal as time progresses. This matches with what
+\cite{Sutton_1998} says about Sarsa converges with probability
+1 to an optimal policy only if the policy converges in the
+limit to the greedy policy (i.e. $\epsilon$ tends to 0 in the limit);
+although this is QLearningBasic algorithm and not Sarsa.
+
+
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.45\textwidth]{discountFactor}
+\caption{Varying the discount factor $\gamma$}\label{f:discountFactor}
+\end{figure}
+
+\item[Fig.~\ref{f:discountFactor}]
+This experiment uses the benchmark settings except for the $\gamma$
+discount factor (`g' in the figure) which is different in each run.
+The results suggest the best discount factor to use is 0.95. As
+$\gamma$ decreases from 0.95, the results gets progressively worse.
+Values larger than 0.95 should also get worse, although we've only
+done one run with $\gamma = 1$.
+
+Why 0.95 is the best? I don't know.
+
+\end{description}

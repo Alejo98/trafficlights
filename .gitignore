@@ -11,3 +11,11 @@ nbproject/private/
 *.DS_Store
 *.swp
 *.out
+
+## latex
+*.tps
+*.log
+*.dvi
+report.pdf
+*.blg
+*.bbl

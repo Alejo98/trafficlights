@@ -1,0 +1,45 @@
+\section{Experiments}
+
+The experiments are intended to study the effects of the following variables on the reinformance learning performance:
+
+\begin{enumerate}
+\item Different state representations. Six repsentations are implemented: Default, JamNess, Occ\_3, Occ\_4, Density\_3 and Density\_6. 
+
+\item Different learning algorithms, including different exploration strategies and the effects of eligibility traces. Six implementations are to be compared: OneRule, Sarsa, Q Learning Basic with $\epsilon$-greedy policy, Q Learning with Boltzmann distribution policy, Q Learning with eligibility traces update, and the one called Ultimate, with the best refinements we can make.
+
+\item Varied reinformance learning parameters, such as learning rate and discount factor;
+
+\item Different traffic intensities.
+
+\end{enumerate}
+
+\subsection{Benchmark Set-up}
+
+To compare so many variables, it is important to setup a benchmark for all the experiments.
+We designate a standard set-up which is called the ``benchmark''. This
+benchmark consists of the following reinforcement learning
+algorithm set-up
+
+\begin{description}
+\item[Algorithm] QLearningBasic
+\item[State Representation] DensityState3
+\item[Learning Rate] $\alpha = 0.1$
+\item[Discount Factor] $\gamma = 0.9$
+\item[Policy] $\epsilon$-greedy with no discounting, $\epsilon = 0.1$
+\item[Traffic Intensity] 0.15, i.e. 15\% of the road units have cars
+\end{description}
+
+In all of our experiments, we run the algorithm for 20 million (20,000,000)
+timesteps. At every 100,000 timesteps, we take a ``snapshot'' of the
+performance measure, which is the average number of cars waiting (or queued)
+per timestep in the last 100,000 timesteps. This average value is calculated
+as the total number of cars queued in the period divided by 100,000. We
+compare this averaged performance measure, which is better if it is
+near 0 (very few cars waiting at every timestep), and worst
+if it is a large positive value (lots of cars waiting at every timestep).
+
+In every experiment, we start with this benchmark set-up and
+vary a single parameter. We then run the algorithm once for a particular
+value of the varying parameter and record the performance snapshots.
+The same random number generator seed is used at every run, so the
+traffic pattern is stable across runs.
