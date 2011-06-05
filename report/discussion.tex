@@ -2,19 +2,24 @@
 
 \begin{description}
 
-
-
 \begin{figure}
 \centering
 \includegraphics[width=0.45\textwidth]{algorithm}
 \caption{Best Algorithm}\label{f:algorithm}
 \end{figure}
 
-\item[Fig.~\ref{f:algorithm}]
-Discuss which algorithm is best.
-
-
-
+\item[Fig.~\ref{f:algorithm}] To determine the best algorithm we ran an
+experiment using 5 configurations of algorithms and compatible refinements
+whilst keeping the state representation, learning rate, discount factor and
+traffic intensity constant in accordance with the benchmark setup. We also ran
+the benchmark setup labelled as Q-Basic. The best algorithm without refinements
+running against the benchmark setup is the Sarsa algorithm. The Ultimate
+algorithm, is a modified version of the Sarsa algorithm using an action
+selection policy which chooses an action with probability $p$ from the Boltzmann
+distribution rather than the $\epsilon$-greedy, and includes the use of
+eligibility traces. The Ultimate algorithm delivers significantly better
+performance than all other experiements after 1,000,000 timesteps and converges
+with just above 2 cars waiting per timestep on average.
 
 \begin{figure}
 \centering
@@ -22,11 +27,10 @@ Discuss which algorithm is best.
 \caption{Eligibility Trace}\label{f:eligibility}
 \end{figure}
 
-\item[Fig.~\ref{f:eligibility}]
-Discuss eligibility trace.
-
-
-
+\item[Fig.~\ref{f:eligibility}] From varying the eligibility decay factor over
+our benchmark setup, we observed the ideal decay to be set to 0.85 however it is
+evident that this factor alone has little impact on the performance of the
+overall algorithm.
 
 \begin{figure}
 \centering
@@ -34,16 +38,14 @@ Discuss eligibility trace.
 \caption{Varying Traffic Intensity}\label{f:intensity}
 \end{figure}
 
-\item[Fig.~\ref{f:intensity}]
-Perhaps unsurprisingly, as the traffic intensity increases from 15\% to
-25\%, we found more cars waiting for green light and the overall performance
-drops. We have used the DensityState3 and DensityState6 at 20\% traffic
-intensity and the performance is similar around 2,000,000 timesteps.
-However, DensityState3 --- having a smaller state space --- starts to overfit
-the traffic patterns whereas DensityState6 --- having a larger state space
---- continues to converge to optimal. Also, DensityState6 takes longer to
-converge relative to DensityState3, most likely due to the larger state space.
-
+\item[Fig.~\ref{f:intensity}] Perhaps unsurprisingly, as the traffic intensity
+increases from 15\% to 25\%, we found more cars waiting for a green light with
+an overall performance drop. Using Density\_3 and Density\_6 at 20\% traffic
+intensity, we observed similar performance over 2,000,000 timesteps. However,
+Density\_3 --- having a smaller state space --- starts to overfit the traffic
+patterns whereas Density\_3 --- having a larger state space --- continues to
+converge to optimal. Also, Density\_6 takes longer to converge relative to
+Density\_3, most likely due to the larger state space.
 
 \begin{figure}
 \centering
@@ -54,7 +56,6 @@ converge relative to DensityState3, most likely due to the larger state space.
 \item[Fig.~\ref{f:learningRate}]
 Discuss learning Rate.
 
-
 \begin{figure}
 \centering
 \includegraphics[width=0.45\textwidth]{states}
@@ -63,8 +64,6 @@ Discuss learning Rate.
 
 \item[Fig.~\ref{f:states}]
 Discuss learning Rate.
-
-
 
 \begin{figure}
 \centering
@@ -88,8 +87,6 @@ pattern in the first 4.6 million timesteps, but the traffic patterns
 in the following timesteps are different and the optimal policy is
 no longer the most optimal.
 
-
-
 \begin{figure}
 \centering
 \includegraphics[width=0.45\textwidth]{e-soft}
@@ -109,9 +106,6 @@ converges to the optimal as time progresses. This matches with what
 limit to the greedy policy (i.e. $\epsilon$ tends to 0 in the limit);
 although this is QLearningBasic algorithm and not Sarsa.
 
-
-
-
 \begin{figure}
 \centering
 \includegraphics[width=0.45\textwidth]{discountFactor}
@@ -129,3 +123,4 @@ done one run with $\gamma = 1$.
 Why 0.95 is the best? I don't know.
 
 \end{description}
+

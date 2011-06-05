@@ -1,14 +1,22 @@
 \section {Conclusion}
 
-Based on our results, the ``ultimate'' set-up is
-(which algorithm?)
-discount factor of 0.95
-$\epsilon$-greedy with $\epsilon$ discounted over time at the rate of 0.99 99 99 9
-OcupancyState3 representation
-Learning rate of 0.05
+Based on our experimental results, we have determined the optimal setup for
+implementing a complete learning algorithm for controlling traffic lights by
+choosing the best combination of space representation, algorithm, and
+refinements. We use a space representation of Density\_3 as it has the smallest
+space size, yet delivers satisfactory performance (See Figure 5). We use the
+Sarsa algorithm, instead of the Q Learning algorithm for the main learning
+method as it delivers better performance than all experiments involving Q
+Learning (See Figure 1). For the action selection policy, we choose an action
+with probability $p$ from the Boltzmann distribution, rather than using an
+$\epsilon$-greedy approach (See Figure 1). Eligibility traces are used to
+accelerate the learning speed. The learning rate used is 0.1 with a discount
+factor of 0.9. The overall performance of this combination of parameters is
+demonstrated in the Ultimate algorithm in Figure 1.
 
-This set-up will provide the best performance in the long-haul, which is
-suitable for traffic light control since most traffic lights stay there
-for a very long time. However, a much more cost effective
-option is to build a roundabout, which saves electricity, saves maintenance
-costs, saves having to write software to control traffic lights.
+The Ultimate algorithm provides the best performance over the long-run. It is a
+suitable means for traffic light control given that traffic lights have a
+relatively long lifespan with ample opporuntity to converge to an acceptable
+control algorithm. It is worth noting that a much more cost effective option may
+involve a roundabout delivering savings in electricity, maintenance costs, and
+the need to write software to control traffic lights.

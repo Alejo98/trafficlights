@@ -1,0 +1,425 @@
+@article {watkins_qlearning_1992,
+   author = {Watkins, Christopher J. C. H. and Dayan, Peter},
+   title = {Q-learning},
+   journal = {Machine Learning},
+   publisher = {Springer Netherlands},
+   issn = {0885-6125},
+   keyword = {Computer Science},
+   pages = {279-292},
+   volume = {8},
+   issue = {3},
+   year = {1992}
+}
+
+@article{jaakkola_convergence_1994,
+	title = {On the Convergence of Stochastic Iterative Dynamic Programming Algorithms},
+	volume = {6},
+	issn = {0899-7667},
+	doi = {10.1162/neco.1994.6.6.1185},
+	abstract = {Recent developments in the area of reinforcement learning have yielded a number of new algorithms for the prediction and control of Markovian environments. These algorithms, including the {TD($\lambda$)} algorithm of Sutton (1988) and the Q-learning algorithm of Watkins (1989), can be motivated heuristically as approximations to dynamic programming {(DP).} In this paper we provide a rigorous proof of convergence of these {DP-based} learning algorithms by relating them to the powerful techniques of stochastic approximation theory via a new convergence theorem. The theorem establishes a general class of convergent algorithms to which both {TD(Î»)} and Q-learning belong.},
+	number = {6},
+	journal = {Neural Computation},
+	author = {Tommi Jaakkola and Michael I. Jordan and Satinder P. Singh},
+	month = nov,
+	year = {1994},
+	pages = {1185--1201},
+	publisher = {MIT Press}
+}
+
+@book{sutton_rl_1998,
+ author = {Sutton, Richard S. and Barto, Andrew G.},
+ title = {Reinforcement Learning: An Introduction},
+ year = {1998},
+ isbn = {0262193981},
+ edition = {1st},
+ publisher = {MIT Press},
+ address = {Cambridge, MA, USA},
+} 
+
+
+@incollection{tan_1998_multi-agent,
+ author = {Tan, Ming},
+ chapter = {Multi-agent reinforcement learning: independent vs. cooperative agents},
+ title = {Readings in agents},
+ editor = {Huhns, Michael N. and Singh, Munindar P.},
+ year = {1998},
+ isbn = {1-55860-495-2},
+ pages = {487--494},
+ numpages = {8},
+ url = {http://portal.acm.org/citation.cfm?id=284860.284934},
+ acmid = {284934},
+ publisher = {Morgan Kaufmann Publishers Inc.},
+ address = {San Francisco, CA, USA},
+} 
+
+@incollection {maymounkov02kademlia,
+   author = {Maymounkov, Petar and Mazi�res, David},
+   affiliation = {New York University USA},
+   title = {Kademlia: A Peer-to-Peer Information System Based on the XOR Metric},
+   booktitle = {Peer-to-Peer Systems},
+   series = {Lecture Notes in Computer Science},
+   editor = {Druschel, Peter and Kaashoek, Frans and Rowstron, Antony},
+   publisher = {Springer Berlin / Heidelberg},
+   isbn = {},
+   pages = {53-65},
+   volume = {2429},
+   year = {2002}
+}
+
+
+@inproceedings{tesauro_hybrid_2006,
+	title = {A Hybrid Reinforcement Learning Approach to Autonomic Resource Allocation},
+	doi = {10.1109/ICAC.2006.1662383},
+	abstract = {Reinforcement Learning {(RL)} provides a promising new approach to systems performance management that differs radically from standard queuing-theoretic approaches making use of explicit system performance models. In principle, {RL} can automatically learn high-quality management policies without an explicit performance model or traffic model and with little or no built-in system specific knowledge. In our original work [1], [2], [3] we showed the feasibility of using online {RL} to learn resource valuation estimates (in lookup table form) which can be used to make high-quality server allocation decisions in a multi-application prototype Data Center scenario. The present work shows how to combine the strengths of both {RL} and queuing models in a hybrid approach in which {RL} trains offline on data collected while a queuing model policy controls the system. By training offline we avoid suffering potentially poor performance in live online training. We also now use {RL} to train nonlinear function approximators (e.g. multi-layer perceptrons) instead of lookup tables; this enables scaling to substantially larger state spaces. Our results now show that in both open-loop and closed-loop traffic, hybrid {RL} training can achieve significant performance improvements over a variety of initial model-based policies. We also find that, as expected, {RL} can deal effectively with both transients and switching delays, which lie outside the scope of traditional steady-state queuing theory.},
+	booktitle = {Proceedings of {IEEE} International Conference on Autonomic Computing ({ICAC} '06)},
+	author = {G. Tesauro and {N.K.} Jong and R. Das and {M.N.} Bennani},
+	year = {2006},
+	pages = {65--73}
+},
+
+@inproceedings{xiangping_bu_reinforcement_2009,
+	title = {A Reinforcement Learning Approach to Online Web Systems Auto-configuration},
+	isbn = {1063-6927},
+	doi = {10.1109/ICDCS.2009.76},
+	abstract = {In a web system, configuration is crucial to the performance and service availability. It is a challenge, not only because of the dynamics of Internet traffic, but also the dynamic virtual machine environment the system tends to be run on. In this paper, we propose a reinforcement learning approach for autonomic configuration and reconfiguration of multi-tier web systems. It is able to adapt performance parameter settings not only to the change of workload, but also to the change of virtual machine configurations. The {RL} approach is enhanced with an efficient initialization policy to reduce the learning time for online decision. The approach is evaluated using {TPC-W} benchmark on a three-tier website hosted on a Xen-based virtual machine environment. Experiment results demonstrate that the approach can auto-configure the web system dynamically in response to the change in both workload and {VM} resource. It can drive the system into a near-optimal configuration setting in less than 25 trial-and-error iterations.},
+	booktitle = {Proceedings of the 29th {IEEE} International Conference on Distributed Computing Systems ({ICDCS} '09)},
+	author = {Xiangping Bu and Jia Rao and {Cheng-Zhong} Xu},
+	year = {2009},
+	keywords = {autonomic configuration, dynamic virtual machine environment, Internet, Internet traffic, learning (artificial intelligence), multi-tier Web systems, online Web systems auto-configuration, reinforcement learning, software fault tolerance, {TPC-W} benchmark, virtual machines, Xen-based virtual machine environment},
+	pages = {2--11}
+},
+
+@inproceedings{tang_scalable_2007,
+	address = {Banff, Alberta, Canada},
+	title = {A scalable application placement controller for enterprise data centers},
+	isbn = {978-1-59593-654-7},
+	url = {http://portal.acm.org/citation.cfm?id=1242572.1242618&coll=Portal&dl=GUIDE&type=series&idx=SERIES968&part=series&WantType=Proceedings&title=WWW&CFID=110654322&CFTOKEN=90405401},
+	doi = {10.1145/1242572.1242618},
+	abstract = {Given a set of machines and a set of Web applications with dynamically changing demands, an online application placement controller decides how many instances to run for each application and where to put them, while observing all kinds of resource constraints. This {NP} hard problem has real usage in commercial middleware products. Existing approximation algorithms for this problem can scale to at most a few hundred machines, and may produce placement solutions that are far from optimal when system resources are tight. In this paper, we propose a new algorithm that can produce within 30seconds high-quality solutions for hard placement problems with thousands of machines and thousands of applications. This scalability is crucial for dynamic resource provisioning in large-scale enterprise data centers. Our algorithm allows multiple applications to share a single machine, and strivesto maximize the total satisfied application demand, to minimize the number of application starts and stops, and to balance the load across machines. Compared with existing state-of-the-art algorithms, for systems with 100 machines or less, our algorithm is up to 134 times faster, reduces application starts and stops by up to 97\%, and produces placement solutions that satisfy up to 25\% more application demands. Our algorithm has been implemented and adopted in a leading commercial middleware product for managing the performance of Web applications.},
+	booktitle = {Proceedings of the 16th international conference on World Wide Web},
+	publisher = {{ACM}},
+	author = {Chunqiang Tang and Malgorzata Steinder and Michael Spreitzer and Giovanni Pacifici},
+	year = {2007},
+	keywords = {application placement, performance management},
+	pages = {331--340}
+},
+
+@article{t.c.-k._hui_adaptive_2003,
+	title = {Adaptive provisioning of differentiated services networks based on reinforcement learning},
+	volume = {33},
+	issn = {1094-6977},
+	doi = {10.1109/TSMCC.2003.818472},
+	abstract = {The issue of bandwidth provisioning for Per Hop Behavior {(PHB)} aggregates in Differentiated Services {(DiffServ)} networks has received a lot of attention from researchers. However, most proposed methods need to determine the amount of bandwidth to provision at the time of connection admission. This assumes that traffic in admitted flows always conforms to predefined specifications, which would need some form of traffic shaping or admission control before reaching the ingress of the domain. This paper proposes an adaptive provisioning mechanism based on reinforcement-learning principles, which determines at regular intervals the amount of bandwidth to provision to each {PHB} aggregate. The mechanism adjusts to maximize the amount of revenue earned from a usage-based pricing model. The novel use of a continuous-space, gradient-based learning algorithm, enables the mechanism to require neither accurate traffic specifications nor rigid admission control. Using ns-2 simulations, we demonstrate using Weighted Fair Queuing, how our mechanism can be implemented in a {DiffServ} network.},
+	number = {4},
+	journal = {Systems, Man, and Cybernetics, Part C: Applications and Reviews, {IEEE} Transactions on},
+	author = {{T.C.-K.} Hui and {Chen-Khong} Tham},
+	year = {2003},
+	keywords = {admission control, bandwidth provisioning, computer networks, differentiated services, Diffserv, learning (artificial intelligence), per hop behavior, quality of service, reinforcement learning},
+	pages = {492--501}
+},
+
+@inproceedings{xiaoying_wang_appliance-based_2007,
+	title = {{Appliance-Based} Autonomic Provisioning Framework for Virtualized Outsourcing Data Center},
+	doi = {10.1109/ICAC.2007.6},
+	abstract = {As outsourcing data centers emerge to host applications or services from many different organizations and companies, it is critical for data center owners to isolate different applications while dynamically and optimally allocate resources among them. To address this problem, we propose a virtual-appliance-based autonomic resource provisioning framework for large virtualized data centers. Firstly, we present the architecture of the data center with enriched autonomic features. Secondly, we define a non-linear constrained optimization model for dynamic resource provisioning and present its novel analytic solution. Key factors including virtualization overhead and reconfiguration delay are incorporated into the model. Experimental results based on a prototype system demonstrate that system-level performance has been greatly improved by taking advantage of fine-grained server consolidation. Experiments with the impact of switching delay also show the efficiency of the framework through significantly reducing provisioning time.},
+	booktitle = {Proceedings of the Fourth International Conference on Autonomic Computing ({ICAC} '07)},
+	author = {{XiaoYing} Wang and {DongJun} Lan and Gang Wang and Xing Fang and Meng Ye and Ying Chen and {QingBo} Wang},
+	year = {2007},
+	keywords = {appliance-based autonomic provisioning framework, computer centres, nonlinear constrained optimization model, optimisation, outsourcing, resource allocation, virtualized outsourcing data center},
+	pages = {29}
+},
+
+@inproceedings{choi_autonomous_2008,
+	address = {Island of Kos, Greece},
+	title = {Autonomous learning for efficient resource utilization of dynamic {VM} migration},
+	isbn = {978-1-60558-158-3},
+	url = {http://portal.acm.org.ezproxy.lib.unimelb.edu.au/citation.cfm?id=1375527.1375556&coll=portal&dl=ACM&CFID=5585048&CFTOKEN=92457809#},
+	abstract = {Dynamic migration of virtual machines on a cluster of physical machines is designed to maximize resource utilization by balancing loads across the cluster. When the utilization of a physical machine is beyond a fixed threshold, the machine is deemed overloaded. A virtual machine is then selected within the overloaded physical machine for migration to a lightly loaded physical machine. Key to such threshold-based {VM} migration is to determine when to move which {VM} to what physical machine, since wrong or inadequate decisions can cause unnecessary migrations that would adversely affect the overall performance. We present in this paper a learning framework that autonomously finds and adjusts thresholds at runtime for different computing requirements. Central to our approach is the previous history of migrations and their effects before and after each migration in terms of standard deviation of utilization. We set up an experimental environment that consists of extensive real world benchmarking problems and a cluster of 16 physical machines each of which has on average eight virtual machines. We demonstrate through experimental results that our approach autonomously finds thresholds close to the optimal ones for different computing scenarios and that such varying thresholds yield an optimal number of {VM} migrations for maximizing resource utilization.},
+	booktitle = {Proceedings of the 22nd annual international conference on Supercomputing},
+	publisher = {{ACM}},
+	author = {Hyung Won Choi and Hukeun Kwak and Andrew Sohn and Kyusik Chung},
+	year = {2008},
+	keywords = {linux cluster, os migration, resource utilization, virtual machines, virtualization},
+	pages = {185--194}
+},
+
+@inproceedings{urgaonkar_cataclysm:_2005,
+	address = {Chiba, Japan},
+	title = {Cataclysm: policing extreme overloads in internet applications},
+	isbn = {1-59593-046-9},
+	shorttitle = {Cataclysm},
+	url = {http://portal.acm.org/citation.cfm?id=1060745.1060852&coll=Portal&dl=GUIDE&type=series&idx=SERIES968&part=series&WantType=Proceedings&title=WWW&CFID=110654322&CFTOKEN=90405401},
+	doi = {10.1145/1060745.1060852},
+	abstract = {In this paper we present the Cataclysm server platform for handling extreme overloads in hosted Internet applications. The primary contribution of our work is to develop a low overhead, highly scalable admission control technique for Internet applications. Cataclysm provides several desirable features, such as guarantees on response time by conducting accurate size-based admission control, revenue maximization at multiple time-scales via preferential admission of important requests and dynamic capacity provisioning, and the ability to be operational even under extreme overloads. Cataclysm can transparently trade-off the accuracy of its decision making with the intensity of the workload allowing it to handle incoming rates of several tens of thousands of requests/second. We implement a prototype Cataclysm hosting platform on a Linux cluster and demonstrate the benefits of our integrated approach using a variety of workloads.},
+	booktitle = {Proceedings of the 14th international conference on World Wide Web},
+	publisher = {{ACM}},
+	author = {Bhuvan Urgaonkar and Prashant Shenoy},
+	year = {2005},
+	keywords = {internet application, overload, sentry},
+	pages = {740--749}
+},
+
+@inproceedings{kephart_coordinating_2007,
+	title = {Coordinating Multiple Autonomic Managers to Achieve Specified {Power-Performance} Tradeoffs},
+	doi = {10.1109/ICAC.2007.12},
+	abstract = {Getting multiple autonomic managers to work together towards a common goal is a significant architectural and algorithmic challenge, as noted in the {ICAC} 2006 panel discussion regarding {"Can} we build effective multi-vendor autonomic systems?" We address this challenge in a real small-scale system that processes web transactions. An administrator uses a utility function to define a set of power and performance objectives. Rather than creating a central controller to manage performance and power simultaneously, we use two existing {IBM} products, one that manages performance and one that manages power by controlling clock frequency. We demonstrate that, with good architectural and algorithmic choices established through trial and error, the two managers can indeed work together to act in accordance with a flexible set of power-performance objectives and tradeoffs, resulting in power savings of approximately 10\%. Key elements of our approach include (a) a feedback controller that establishes a power cap (a limit on consumed power) by manipulating clock frequency and (b) reinforcement learning, which adoptively learns models of the dependence of performance and power consumption on workload intensity and the powercap.},
+	booktitle = {Proceedings of Fourth International Conference on Autonomic Computing ({ICAC} '07)},
+	author = {{J.O.} Kephart and Hoi Chan and R. Das and {D.W.} Levine and G. Tesauro and F. Rawson and C. Lefurgy},
+	year = {2007},
+	keywords = {clock frequency, energy conservation, feedback controller, {IBM} products, {ICAC} 2006 panel discussion, multiple autonomic managers, power cap, power consumption, power-performance tradeoffs, reinforcement learning, Web transactions},
+	pages = {24}
+},
+
+@inproceedings{karve_dynamic_2006,
+	address = {Edinburgh, Scotland},
+	title = {Dynamic placement for clustered web applications},
+	isbn = {1-59593-323-9},
+	url = {http://portal.acm.org/citation.cfm?id=1135777.1135865&coll=Portal&dl=GUIDE&type=series&idx=SERIES968&part=series&WantType=Proceedings&title=WWW&CFID=110654322&CFTOKEN=90405401},
+	doi = {10.1145/1135777.1135865},
+	abstract = {We introduce and evaluate a middleware clustering technology capable of allocating resources to web applications through dynamic application instance placement. We define application instance placement as the problem of placing application instances on a given set of server machines to adjust the amount of resources available to applications in response to varying resource demands of application clusters. The objective is to maximize the amount of demand that may be satisfied using a configured placement. To limit the disturbance to the system caused by starting and stopping application instances, the placement algorithm attempts to minimize the number of placement changes. It also strives to keep resource utilization balanced across all server machines. Two types of resources are managed, one load-dependent and one load-independent. When putting the chosen placement in effect our controller schedules placement changes in a manner that limits the disruption to the system.},
+	booktitle = {Proceedings of the 15th international conference on World Wide Web},
+	publisher = {{ACM}},
+	author = {A. Karve and T. Kimbrel and G. Pacifici and M. Spreitzer and M. Steinder and M. Sviridenko and A. Tantawi},
+	year = {2006},
+	keywords = {dynamic application placement, performance management},
+	pages = {595--604}
+},
+
+@inproceedings{al-qudah_efficient_2009,
+	address = {Madrid, Spain},
+	title = {Efficient application placement in a dynamic hosting platform},
+	isbn = {978-1-60558-487-4},
+	url = {http://portal.acm.org/citation.cfm?id=1526709.1526748&coll=Portal&dl=GUIDE&type=series&idx=SERIES968&part=series&WantType=Proceedings&title=WWW&CFID=110654322&CFTOKEN=90405401},
+	doi = {10.1145/1526709.1526748},
+	abstract = {Web hosting providers are increasingly looking into dynamic hosting to reduce costs and improve the performance of their platforms. Instead of provisioning fixed resources to each customer, dynamic hosting maintains a variable number of application instances to satisfy current demand. While existing research in this area has mostly focused on the algorithms that decide on the number and location of application instances, we address the problem of efficient enactment of these decisions once they are made. We propose a new approach to application placement and experimentally show that it dramatically reduces the cost of application placement, which in turn improves the end-to-end agility of the hosting platform in reacting to demand changes.},
+	booktitle = {Proceedings of the 18th international conference on World wide web},
+	publisher = {{ACM}},
+	author = {Zakaria {Al-Qudah} and Hussein A. Alzoubi and Mark Allman and Michael Rabinovich and Vincenzo Liberatore},
+	year = {2009},
+	keywords = {application servers, dynamic placement, startup performance, web hosting},
+	pages = {281--290}
+},
+
+@inproceedings{meng_efficient_2010,
+	address = {Washington, {DC,} {USA}},
+	title = {Efficient resource provisioning in compute clouds via {VM} multiplexing},
+	isbn = {978-1-4503-0074-2},
+	url = {http://portal.acm.org/citation.cfm?id=1809049.1809052&coll=Portal&dl=GUIDE&CFID=110654322&CFTOKEN=90405401},
+	doi = {10.1145/1809049.1809052},
+	abstract = {Resource provisioning in compute clouds often require an estimate of the capacity needs of Virtual Machines {(VMs).} The estimated {VM} size is the basis for allocating resources commensurate with workload demand. In contrast to the traditional practice of estimating the {VM} sizes individually, we propose a {joint-VM} sizing approach in which multiple {VMs} are consolidated and provisioned, based on an estimate of their aggregate capacity needs. This new approach exploits statistical multiplexing among the workload patterns of multiple {VMs,} i.e., the peaks and valleys in one workload pattern do not necessarily coincide with the others. Thus, the unused resources of a low utilized {VM} can be directed to the other co-located {VMs} with high utilization. Compared to individual {VM} based provisioning, {joint-VM} sizing and provisioning may lead to much higher resource utilization. This paper presents three design modules to enable the concept in practice. Specifically, a performance constraint describing the capacity need of a {VM} for achieving a certain level of application performance; an algorithm for estimating the size of jointly provisioning {VMs;} a {VM} selection method that seeks to find good {VM} combinations for being provisioned together. We showcase that the proposed three modules can be seamlessly plugged into existing applications such as resource provisioning, and providing resource guarantees for {VMs.} The proposed algorithms and applications are evaluated by monitoring data collected from about 16 thousand {VMs} in commercial data centers. These evaluations reveal more than 45\% improvements in terms of the overall resource utilization.},
+	booktitle = {Proceeding of the 7th international conference on Autonomic computing ({ICAC} '10)},
+	publisher = {{ACM}},
+	author = {Xiaoqiao Meng and Canturk Isci and Jeffrey Kephart and Li Zhang and Eric Bouillet and Dimitrios Pendarakis},
+	year = {2010},
+	keywords = {cloud computing, provisioning, virtualization},
+	pages = {11--20}
+},
+
+@inproceedings{gueyoung_jung_generating_2008,
+	title = {Generating Adaptation Policies for Multi-tier Applications in Consolidated Server Environments},
+	doi = {10.1109/ICAC.2008.21},
+	abstract = {Creating good adaptation policies is critical to building complex autonomic systems since it is such policies that define the system configuration used in any given situation. While online approaches based on control theory and rule- based expert systems are possible solutions, each has its disadvantages. Here, a hybrid approach is described that uses modeling and optimization offline to generate suitable configurations, which are then encoded as policies that are used at runtime. The approach is demonstrated on the problem of providing dynamic management in virtualized consolidated server environments that host multiple multi-tier applications. Contributions include layered queuing models for Xen-based virtual machine environments, a novel optimization technique that uses a combination of bin packing and gradient search, and experimental results that show that automatic offline policy generation is viable and can be accurate even with modest computational effort.},
+	booktitle = {Proceedings of Fifth International Conference on Autonomic Computing ({ICAC} '08} },
+	author = {Gueyoung Jung and {K.R.} Joshi and {M.A.} Hiltunen and {R.D.} Schlichting and C. Pu},
+	year = {2008},
+	keywords = {automatic offline adaptation policy generation, bin packing, complex autonomic systems, decision tree learning, decision trees, dynamic management problem, fault tolerant computing, gradient methods, gradient search, layered queuing models, multitier applications, offline optimization technique, optimisation, queueing theory, rule-based system management engines, search problems, virtual machines, virtualized consolidated server environments, Xen-based virtual machine environments},
+	pages = {23--32}
+},
+
+@article{jaakkola_convergence_1994,
+	title = {On the Convergence of Stochastic Iterative Dynamic Programming Algorithms},
+	volume = {6},
+	issn = {0899-7667},
+	url = {http://dx.doi.org/10.1162/neco.1994.6.6.1185},
+	doi = {10.1162/neco.1994.6.6.1185},
+	abstract = {Recent developments in the area of reinforcement learning have yielded a number of new algorithms for the prediction and control of Markovian environments. These algorithms, including the {TD(Î»)} algorithm of Sutton (1988) and the Q-learning algorithm of Watkins (1989), can be motivated heuristically as approximations to dynamic programming {(DP).} In this paper we provide a rigorous proof of convergence of these {DP-based} learning algorithms by relating them to the powerful techniques of stochastic approximation theory via a new convergence theorem. The theorem establishes a general class of convergent algorithms to which both {TD(Î»)} and Q-learning belong.},
+	number = {6},
+	journal = {Neural Computation},
+	author = {Tommi Jaakkola and Michael I. Jordan and Satinder P. Singh},
+	month = nov,
+	year = {1994},
+	pages = {1185--1201}
+},
+
+@article{gerald_tesauro_reinforcement_2007,
+	title = {Reinforcement Learning in Autonomic Computing: A Manifesto and Case Studies},
+	volume = {11},
+	issn = {1089-7801},
+	shorttitle = {Reinforcement Learning in Autonomic Computing},
+	doi = {10.1109/MIC.2007.21},
+	abstract = {Reinforcement learning is a promising new approach for automatically developing effective policies for real-time self-management. {RL} can achieve superior performance to traditional methods, while requiring less built-in domain knowledge. Several case studies from real and simulated systems management applications demonstrate {RL's} promises and challenges. These studies show that standard online {RL} can learn effective policies in feasible training times. Moreover, a Hybrid {RL} approach can profit from any knowledge contained in an existing policy by training on the policy's observable behavior, without needing to interface directly to such knowledge},
+	number = {1},
+	journal = {{IEEE} Internet Computing},
+	author = {Gerald Tesauro},
+	year = {2007},
+	keywords = {autonomic computing, fault tolerant computing, learning (artificial intelligence), real-time self-management system, reinforcement learning, self-adjusting systems, systems management},
+	pages = {22--30}
+},
+
+@inproceedings{almeida_resource_2006,
+	title = {Resource Management in the Autonomic {Service-Oriented} Architecture},
+	doi = {10.1109/ICAC.2006.1662385},
+	abstract = {In service oriented systems, Quality of Service {(QoS)} is a service selection driver. Users evaluate {QoS} at run time to address their service invocation to the most suitable provider. Thus, {QoS} has a direct impact on providers' revenues. However, {QoS} requirements are difficult to satisfy because of the high variability of Internet workloads. Workload variability cannot be accommodated with traditional capacity planning and allocation practices, but requires autonomic computing techniques. Autonomic computing involves two tightly inter-related problems, namely, a short-term resource allocation problem and a long-term capacity planning problem. Capacity planning requires an investment that should be balanced by the revenues obtained through resource allocation. In this paper, we provide a comprehensive framework modelling both problems. The short-term resource allocation problem is analyzed in depth. The paper proposes an optimization model that identifies the optimal resource allocation by maximizing a provider's revenues while satisfying customers {QoS} constraints and minimizing resource usage cost. Preliminary computational experiments are presented to support the effectiveness of our approach.},
+	booktitle = {Proceedings of 2006 {IEEE} International Conference on Autonomic Computing, 2006 (ICAC '06)},
+	author = {J. Almeida and V. Almeida and D. Ardagna and C. Francalanci and M. Trubian},
+	year = {2006},
+	pages = {84--92}
+},
+
+
+@inproceedings{mietzner_towards_2008,
+	title = {Towards Provisioning the Cloud: On the Usage of {Multi-Granularity} Flows and Services to Realize a Unified Provisioning Infrastructure for {SaaS} Applications},
+	shorttitle = {Towards Provisioning the Cloud},
+	doi = {10.1109/SERVICES-1.2008.36},
+	abstract = {The automatic provisioning of applications is an important task for the success of software as a service {(SaaS)} providers. Different provisioning engines from different vendors and open source projects with different interfaces have been emerging lately. Additionally, infrastructure providers that provide infrastructure on demand now provide computing resources that can be integrated in a {SaaS} providerpsilas computing environment. In order to allow {SaaS} application providers to specify generic installation and maintenance flows independent from the underlying provisioning engines we propose an architecture for a generic provisioning infrastructure based on Web services and workflow technology.},
+	booktitle = {Proceedings of {IEEE} Congress on Services - Part I, 2008},
+	author = {R. Mietzner and F. Leymann},
+	year = {2008},
+	keywords = {generic installation, generic provisioning infrastructure, infrastructure providers, maintenance flows, multigranularity flows, provisioning engines, {SaaS,} software architecture, software as a service provider, software maintenance, Web services, workflow technology},
+	pages = {3--10}
+},
+
+@inproceedings{walsh_utility_2004,
+	title = {Utility functions in autonomic systems},
+	doi = {10.1109/ICAC.2004.1301349},
+	abstract = {Utility functions provide a natural and advantageous framework for achieving self-optimization in distributed autonomic computing systems. We present a distributed architecture, implemented in a realistic prototype data center, that demonstrates how utility functions can enable a collection of autonomic elements to continually optimize the use of computational resources in a dynamic, heterogeneous environment. Broadly, the architecture is a two-level structure of independent autonomic elements that supports flexibility, modularity, and self-management. Individual autonomic elements manage application resource usage to optimize local service-level utility functions, and a global arbiter allocates resources among application environments based on resource-level utility functions obtained from the managers of the applications. We present empirical data that demonstrate the effectiveness of our utility function scheme in handling realistic, fluctuating Web-based transactional workloads running on a Linux cluster.},
+	booktitle = {Proceedings of First International Conference on Autonomic Computing (ICAC'04)},
+	author = {{W.E.} Walsh and G. Tesauro and {J.O.} Kephart and R. Das},
+	year = {2004},
+	keywords = {autonomic computing systems, computational resource optimization, distributed architecture, distributed system, fluctuating Web-based transactional workloads, Internet, linux cluster, resource allocation, self-adjusting systems, self-management, self-optimization, software architecture, utility functions, workstation clusters},
+	pages = {70--77}
+},
+
+@inproceedings{tesauro_utility-function-driven_2005,
+	title = {{Utility-Function-Driven} Resource Allocation in Autonomic Systems},
+	doi = {10.1109/ICAC.2005.65},
+	abstract = {We study autonomic resource allocation among multiple applications based on optimizing the sum of utility for each application. We compare two methodologies for estimating the utility of resources: a queuing-theoretic performance model and model-free reinforcement learning. We evaluate them empirically in a distributed prototype data center and highlight tradeoffs between the two methods},
+	booktitle = {Proceedings of Second International Conference on Autonomic Computing ({ICAC} '05)},
+	author = {G. Tesauro and R. Das and {W.E.} Walsh and {J.O.} Kephart},
+	year = {2005},
+	keywords = {autonomic systems, distributed processing, learning (artificial intelligence), multiple applications, optimisation, optimization, performance model, queueing theory, queuing theory, reinforcement learning, resource allocation, utility-function-driven resource allocation},
+	pages = {342--343}
+},
+
+@article{menasce_web_2003,
+	title = {Web server software architectures},
+	volume = {7},
+	issn = {1089-7801},
+	doi = {10.1109/MIC.2003.1250588},
+	abstract = {Web site scalability depends on several things - workload characteristics, security mechanisms, Web cluster architectures as we discussed previously. Another important item that can affect a site's performance and scalability is the Web server software architecture. We provide a classification of Web server architectures, offer a quantitative analysis of some possible software architectural options, and discuss the importance of software contention on overall response time.},
+	number = {6},
+	journal = {{IEEE} Internet Computing},
+	author = {{D.A.} Menasce},
+	year = {2003},
+	keywords = {Internet, pool-size behaviour, software architecture, threading model, Web server software architecture, Web sites, workload intensity},
+	pages = {78--81},
+	publisher = {IEEE},
+}
+
+@inproceedings{das_aamas_2008,
+ author = {Das, Rajarshi and Kephart, Jeffrey O. and Lefurgy, Charles and Tesauro, Gerald and Levine, David W. and Chan, Hoi},
+ title = {Autonomic multi-agent management of power and performance in data centers},
+ booktitle = {Proceedings of the 7th international joint conference on Autonomous agents and multiagent systems: industrial track},
+ series = {AAMAS '08},
+ year = {2008},
+ location = {Estoril, Portugal},
+ pages = {107--114},
+ numpages = {8},
+ url = {http://portal.acm.org/citation.cfm?id=1402795.1402816},
+ acmid = {1402816},
+ publisher = {International Foundation for Autonomous Agents and Multiagent Systems},
+ address = {Richland, SC},
+ keywords = {data center, energy savings, green data center, multicriteria utility functions, policy-based management, power management, power measurement},
+} 
+
+@inproceedings{morris_variance_2000,
+	title = {Variance of aggregated Web traffic},
+	volume = {1},
+	doi = {10.1109/INFCOM.2000.832206},
+	abstract = {If data traffic were Poisson, increases in the amount of traffic
+aggregated on a network would rapidly decrease the relative size of
+bursts. The discovery of pervasive long-range dependence demonstrates
+that real network traffic is burstier than any possible Poisson model.
+We present evidence that, despite being {non-Poisson,} aggregating Web
+traffic causes it to smooth out as rapidly as Poisson traffic. That is,
+the relationship between changes in mean bandwidth and changes in
+variance is the same for Web traffic as it is for Poisson traffic. We
+derive our evidence from traces of real traffic in two ways: first, by
+observing how variance changes over the large range of mean bandwidths
+present in 24-hour traces; second, by observing the relationship of
+variance and mean bandwidth for individual users and combinations of
+users. Our conclusion, that variance changes linearly with mean
+bandwidth, should be useful (and encouraging) to anyone provisioning a
+network for a large aggregate load of Web traffic},
+	booktitle = {Proceedings of Nineteenth Annual Joint Conference of the {IEEE} Computer and Communications Societies. Proceedings ({INFOCOM} 2000)},
+	author = {R. Morris and Dong Lin},
+	year = {2000},
+	keywords = {aggregated Web traffic, bursty traffic, data communication, data traffic, information resources, Internet, long-range dependence, mean bandwidth, telecommunication traffic, variance},
+	pages = {360--366 vol.1},
+	publisher = IEEE,
+}
+
+@inproceedings{doyle_model-based_2003,
+	address = {Seattle, {WA}},
+	title = {Model-based resource provisioning in a web service utility},
+	url = {http://portal.acm.org/citation.cfm?id=1251460.1251465},
+	abstract = {Internet service utilities host multiple server applications on a shared server cluster. A key challenge for these systems is to provision shared resources on demand to meet service quality targets at least cost. This paper presents a new approach to utility resource management focusing on coordinated provisioning of memory and storage resources. Our approach is model-based: it incorporates internal models of service behavior to predict the value of candidate resource allotments under changing load. The model-based approach enables the system to achieve important resource management goals, including differentiated service quality, performance isolation, storage-aware caching, and proactive allocation of surplus resources to meet performance goals. Experimental results with a prototype demonstrate model-based dynamic provisioning under Web workloads with static content.},
+	booktitle = {Proceedings of the 4th conference on {USENIX} Symposium on Internet Technologies and Systems - Volume 4},
+	publisher = {{USENIX} Association},
+	author = {Ronald P. Doyle and Jeffrey S. Chase and Omer M. Asad and Wei Jin and Amin M. Vahdat},
+	year = {2003},
+	pages = {5--5}
+}
+
+@inproceedings{urgaonkar_analytical_2005,
+ author = {Urgaonkar, Bhuvan and Pacifici, Giovanni and Shenoy, Prashant and Spreitzer, Mike and Tantawi, Asser},
+ title = {An analytical model for multi-tier internet services and its applications},
+ booktitle = {Proceedings of the 2005 ACM SIGMETRICS international conference on Measurement and modeling of computer systems},
+ series = {SIGMETRICS '05},
+ year = {2005},
+ isbn = {1-59593-022-1},
+ location = {Banff, Alberta, Canada},
+ pages = {291--302},
+ numpages = {12},
+ url = {http://doi.acm.org.wwwproxy0.library.unsw.edu.au/10.1145/1064212.1064252},
+ doi = {http://doi.acm.org.wwwproxy0.library.unsw.edu.au/10.1145/1064212.1064252},
+ acmid = {1064252},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {MVA algorithm, internet application, queuing model},
+} 
+
+@inproceedings{chess_unity_2004,
+	title = {Unity: experiences with a prototype autonomic computing system},
+	shorttitle = {Unity},
+	doi = {10.1109/ICAC.2004.1301357},
+	abstract = {The behavior of a system results from the behaviors of its components, and from the interactions and relationships among them. In order to create computing systems that manage themselves, we will need to design both the behaviors of the individual elements, and the relationships that are formed among them. This paper describes a research project called Unity, carried out at {IBM's} Thomas J. Watson Research Center, in which we explore some of the behaviors and relationships that will allow complex computing systems to manage themselves; to be self-configuring, self-optimizing, self-protecting, and self-healing. The four principle aspects of Unity that we examine are the overall architecture of the system, the role of utility functions in decision-making within the system, the way the system uses goal-driven self-assembly to configure itself, and the design patterns that enable self-healing within the system.},
+	booktitle = {Proceedings of the First International Conference on Autonomic Computing ({ICAC} '04)},
+	author = {{D.M.} Chess and A. Segal and I. Whalley and {S.R.} White},
+	year = {2004},
+	keywords = {autonomic computing, decision making, self-adjusting systems, self-configuration, self-healing, self-management, self-optimization, self-protection, software architecture, system architecture, system monitoring, Unity project, utility functions},
+	pages = {140--147}
+}
+
+@inproceedings{quiroz_towards_2009,
+	title = {Towards autonomic workload provisioning for enterprise Grids and clouds},
+	doi = {10.1109/GRID.2009.5353066},
+	abstract = {This paper explores autonomic approaches for optimizing provisioning for heterogeneous workloads on enterprise grids and clouds. Specifically, this paper presents a decentralized, robust online clustering approach that addresses the distributed nature of these environments, and can be used to detect patterns and trends, and use this information to optimize provisioning of virtual {(VM)} resources. It then presents a model-based approach for estimating application service time using long-term application performance monitoring, to provide feedback about the appropriateness of requested resources as well as the system's ability to meet {QoS} constraints and {SLAs.} Specifically for high-performance computing workloads, the use of a quadratic response surface model {(QRSM)} is justified with respect to traditional models, demonstrating the need for application-specific modeling. The proposed approaches are evaluated using a real computing center workload trace and the results demonstrate both their effectiveness and cost-efficiency.},
+	booktitle = {Proceedings of the 10th {IEEE/ACM} International Conference on Grid Computing (GRID 09)},
+	author = {A. Quiroz and Hyunjoo Kim and M. Parashar and N. Gnanasambandam and N. Sharma},
+	year = {2009},
+	keywords = {autonomic workload provisioning, business data processing, cloud computing, distributed processing, enterprise grids, grid computing, online clustering approach, pattern clustering, {QoS} constraint, quadratic response surface model, virtual resources},
+	pages = {50--57}
+}
+
+@inproceedings{busoniu_multi-agent_2006,
+	title = {{Multi-Agent} Reinforcement Learning: A Survey},
+	shorttitle = {{Multi-Agent} Reinforcement Learning},
+	doi = {10.1109/ICARCV.2006.345353},
+	abstract = {Multi-agent systems are rapidly finding applications in a variety of domains, including robotics, distributed control, telecommunications, economics. Many tasks arising in these domains require that the agents learn behaviors online. A significant part of the research on multi-agent learning concerns reinforcement learning techniques. However, due to different viewpoints on central issues, such as the formal statement of the learning goal, a large number of different methods and approaches have been introduced. In this paper we aim to present an integrated survey of the field. First, the issue of the multi-agent learning goal is discussed, after which a representative selection of algorithms is reviewed. Finally, open issues are identified and future research directions are outlined},
+	booktitle = {Control, Automation, Robotics and Vision, 2006. {ICARCV} '06. 9th International Conference on},
+	author = {L. Busoniu and R. Babuska and B. De Schutter},
+	year = {2006},
+	keywords = {learning (artificial intelligence), multi-agent systems, multiagent learning goal, multiagent reinforcement learning},
+	pages = {1--6}
+}
