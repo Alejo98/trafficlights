@@ -53,8 +53,13 @@ Density\_3, most likely due to the larger state space.
 \caption{Varying Learning Rate}\label{f:learningRate}
 \end{figure}
 
-\item[Fig.~\ref{f:learningRate}]
-Discuss learning Rate.
+\item[Fig.~\ref{f:learningRate}] In this experiement we vary the learning rate
+from 5\% to 25\% using the benchmark setup. It was observed that the optimal
+learning rates were between 5\% and 10\% evident after 2,000,000 timesteps.
+However, up until 1,000,000 timesteps a learning rate of 5\% produces a
+significantly higher number of waiting cars than learning rates above 10\%.
+Given the small difference between the number of waiting cars between 5\% and
+10\%, we would consider a learning rate of 10\% more optimal.
 
 \begin{figure}
 \centering
