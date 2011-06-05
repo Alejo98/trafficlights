@@ -1,0 +1,43 @@
+<project name="HelloWorld" basedir="." default="main">
+
+	<property name="lib.dir" value="lib" />
+
+	<path id="classpath">
+		<fileset dir="${lib.dir}" includes="**/*.jar" />
+	</path>
+
+	<target name="clean">
+		<delete dir="bin" />
+	</target>
+
+	<target name="compile">
+		<mkdir dir="bin" />
+		<javac srcdir="src" destdir="bin" classpathref="classpath" />
+		<copy todir="bin">
+		    <fileset dir="src"
+		             includes="**/*.xml,**/*.properties,**/*.txt,**/*.png" />
+		</copy>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar destfile="tf-gui.jar" basedir="bin">
+			<manifest>
+				<attribute name="Main-Class" value="tf.gui.App" />
+				<!-- <attribute name="Class-Path" value="appframework-1.0.3.jar swing-worker-1.1.jar" /> -->
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="run" depends="jar">
+	    <!--<java fork="true" jar="tf-gui.jar">-->
+		<java fork="true" classname="tf.gui.App">
+    		<classpath>
+    			<path refid="classpath" />
+    			<path location="tf-gui.jar" />
+    		</classpath>
+		</java>
+	</target>
+
+	<target name="main" depends="clean,run" />
+
+</project>
