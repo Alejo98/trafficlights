@@ -1,5 +1,8 @@
 #java specific
 *.class
+.settings
+.texlipse
+tf-gui.jar
 bin/
 doc/
 
