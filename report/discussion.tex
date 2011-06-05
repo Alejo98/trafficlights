@@ -8,16 +8,20 @@
 \caption{Best Algorithm}\label{f:algorithm}
 \end{figure}
 
-\item[Fig.~\ref{f:algorithm}] To determine the best algorithm we ran an
-experiment using 5 configurations of algorithms and compatible refinements
-whilst keeping the state representation, learning rate, discount factor and
-traffic intensity constant in accordance with the benchmark setup. We also ran
-the benchmark setup labelled as Q-Basic. The best algorithm without refinements
-running against the benchmark setup is the Sarsa algorithm. The Ultimate
-algorithm, is a modified version of the Sarsa algorithm using an action
-selection policy which chooses an action with probability $p$ from the Boltzmann
-distribution rather than the $\epsilon$-greedy, and includes the use of
-eligibility traces. The Ultimate algorithm delivers significantly better
+\item[Fig.~\ref{f:algorithm}] To determine the best choice of algorithm we ran
+an experiment using five configurations of algorithms and refinements whilst
+keeping the state representation, learning rate, discount factor and traffic
+intensity constant in accordance with the benchmark setup. We also ran the
+benchmark setup labelled as Q-Basic. The best algorithm without refinements
+running against the benchmark setup is the Sarsa algorithm converging to just
+under 2.5 waiting cars per timestep. The Q-Learning algorithm's performance is
+best when using Boltzmann's action selection policy and also benefits from the
+use of an eligibility trace but is still beaten by the Sarsa algorithm.
+ The Ultimate algorithm is a modified version of the Sarsa algorithm using an
+ action selection
+policy which chooses an action with probability $p$ from the Boltzmann
+distribution rather than using the $\epsilon$-greedy strategy, and includes the
+use of eligibility traces. The Ultimate algorithm delivers significantly better
 performance than all other experiements after 1,000,000 timesteps and converges
 with just above 2 cars waiting per timestep on average.
 
@@ -43,7 +47,7 @@ increases from 15\% to 25\%, we found more cars waiting for a green light with
 an overall performance drop. Using Density\_3 and Density\_6 at 20\% traffic
 intensity, we observed similar performance over 2,000,000 timesteps. However,
 Density\_3 --- having a smaller state space --- starts to overfit the traffic
-patterns whereas Density\_3 --- having a larger state space --- continues to
+patterns whereas Density\_6 --- having a larger state space --- continues to
 converge to optimal. Also, Density\_6 takes longer to converge relative to
 Density\_3, most likely due to the larger state space.
 
@@ -68,7 +72,7 @@ Given the small difference between the number of waiting cars between 5\% and
 \end{figure}
 
 \item[Fig.~\ref{f:states}]
-Discuss learning Rate.
+This experiment uses the benchmark settings while varying the state space representation. The Default state produces the most sub-optimal performance after 2,000,000 timesteps. This representation provides quite a large state space but the type of information being conveyed is less useful than other representations as we only have information about one car on each road at any one time, giving no indication of how busy the traffic is which is the ultimate cause of accumulation of negative rewards. This is in contrast to the Occupancy, Density and JamNess spaces which provide a much better indication of how busy a road is in this sense. This is reflected in our experiment by the convergence of this group after 2,000,000 timesteps to between 2.7 to 3.0 average waiting cars. An interesting observation is the large difference between Density\_6 and Density\_3 spaces with Density\_3 converging with the other best performing representations while Density\_6 lags behind the group while narrowing in over the duration of the experiment. Occ\_3 also performs better than Occ\_4 initially. This is to be expected as it is logical that large state spaces will be slower to converge than smaller state spaces.
 
 \begin{figure}
 \centering
@@ -105,8 +109,8 @@ settings (i.e. $\epsilon = 0.1$ initially) and discounting the
 $\epsilon$ by 0.9999999 per timestep (that's seven 9s). The result shows
 that a fixed $\epsilon$ stablises after about 4,300,000 timesteps
 without further improvement; but the $\epsilon$-discounted algorithm
-converges to the optimal as time progresses. This matches with what
-\cite{Sutton_1998} says about Sarsa converges with probability
+converges to the optimal as time progresses. This matches with what Sutton
+\cite{sutton_rl_1998} says about Sarsa converges with probability
 1 to an optimal policy only if the policy converges in the
 limit to the greedy policy (i.e. $\epsilon$ tends to 0 in the limit);
 although this is QLearningBasic algorithm and not Sarsa.
@@ -122,10 +126,7 @@ This experiment uses the benchmark settings except for the $\gamma$
 discount factor (`g' in the figure) which is different in each run.
 The results suggest the best discount factor to use is 0.95. As
 $\gamma$ decreases from 0.95, the results gets progressively worse.
-Values larger than 0.95 should also get worse, although we've only
-done one run with $\gamma = 1$.
-
-Why 0.95 is the best? I don't know.
+Values larger than 0.95 should also get worse, although only one run with $\gamma = 1$.
 
 \end{description}
 

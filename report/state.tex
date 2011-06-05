@@ -1,27 +1,84 @@
 \section{Definition}
 
 \subsection{Traffic Model}
-The traffic is flowing in two ways on two intersecting roads. Based on the direction of car flows, the traffic model is comprised of four independent one-way flows, denoted as West-East, East-West, North-South and South-North. For example, in the North-South flow, all the cars travel in one direction, that is, from north to south.
+The traffic is flowing in two ways on two intersecting roads. Based on the
+direction of car flows, the traffic model is comprised of four independent
+one-way flows, denoted as West-East, East-West, North-South and South-North. For
+example, in the North-South flow, all the cars travel in one direction, that is,
+from north to south.
 
-The competing flows of the traffic are controlled by a set of traffic lights. As there are only two intersecting main roads (regardless the directions), two mutually exclusive traffic lights are sufficient. They are denoted as lightWE (which controls West-East and East-West), and lightNS, for North-South and South-North traffic flows. There are three signals, namely RED, AMBER and GREEN. A car should stop if there is an AMBER or RED signal, and the cars right behind it pile up in queue. In addition, the lights can not change consecutively in less than three timesteps.
+The competing flows of the traffic are controlled by a set of traffic lights. As
+there are only two intersecting main roads (regardless the directions), two
+mutually exclusive traffic lights are sufficient. They are denoted as lightWE
+(which controls West-East and East-West), and lightNS, for North-South and
+South-North traffic flows. There are three signals, namely RED, AMBER and GREEN.
+A car should stop if there is an AMBER or RED signal, and the cars behind
+it form a stationary queue. In addition, the lights can not change consecutively in
+less than three timesteps.
 
-Each flow is modelled as a standalone road. The road is 100 units in length (from 0 to 99), and intersects with the roads in the perpendicular directions at Unit 49 and 50. The traffic light is positioned at road intersections. At each timestep, one car enters the road at Position 0, with the probability that equals to the traffic intensity (e.g. 15\%). Cars are removed from the road when they reach the boundary (i.e., beyond Unit 99).
+Each flow is modelled as a standalone road. The road is 100 units in length
+(from 0 to 99), and intersects with the roads in the perpendicular directions at
+Unit 49 and 50. The traffic light is positioned at road intersections. At each
+timestep, one car enters the road at Position 0, with the probability that
+equals to the traffic intensity (e.g. 15\%). Cars are removed from the road when
+they reach the boundary (i.e., beyond unit 99).
 
 \subsection{State Representation}
-The traffic state consists of the light's state and the car's state. As the light signals are mutually exclusive, there are only four possible states, namely (GREEN, RED), (AMBER, RED), (RED, GREEN) and (RED, AMBER), denoted as 0, 1, 2 and 3 respectively. Moreover, the value of light delay since last change is 0-3. Hence, the state space of lights is 4 x 4.
+The traffic state consists of the light's state and the car's state. As the
+light signals are mutually exclusive, there are only four possible states,
+namely (GREEN, RED), (AMBER, RED), (RED, GREEN) and (RED, AMBER), denoted as 0,
+1, 2 and 3 respectively. Moreover, the value of light delay since last change is
+0-3. Hence, the state space of lights is 4 x 4.
 
-However, defining the car's state is less straightforward. The occupancy of each unit by a car can be marked as 0 or 1. As there are 48 units before the traffic lights on each road, the state space of cars can be as large as $2^{192}$. Therefore, we propose three variants of state representation to maintain the space in a feasible size.
+However, defining the car's state is less straightforward. The occupancy of each
+unit by a car can be marked as 0 or 1. As there are 48 units before the traffic
+lights on each road, the state space of cars can be as large as $2^{192}$.
+Therefore, we propose three variants of state representation to maintain the
+space in a feasible size.
 
 \subsubsection{Default State}
-The Default State is described in the assignment specification. On each road, only the position of the closest car from the intersection is counted, and only the first 9 units from the intersection are inspected. Therefore, the position is between 0 and 8 inclusive, and 9 denotes no cars. The space size of Default State is $10^4$.
+The Default State is described in the assignment specification. On each road,
+only the position of the closest car from the intersection is counted, and only
+the first 9 units from the intersection are inspected. Therefore, the position
+is between 0 and 8 inclusive, and 9 denotes no cars. The space size of Default
+State is $10^4$.
 
 \subsubsection{JamNess State}
-The JamNess State is a representation of how busy the traffic is on that road (i.e. traffic jam-ness). Each car is given a weighting based on their distance from the intersection. Cars closer to the intersection have a greater weight than cars further away from the intersection. To calculate JamNess, we introduce an importance value of each car, denoted as $0.5^i$, where $i$ is the position of the car from the traffic lights (at Unit 49). For example, the importance of the car at Unit 46 is $0.5^3$, since it is 3 positions away from the lights. The sum of all the importance values on one road is between 0 and 0.9999999. Then, the JamNess is calculated as $sum * 10$ and rounded down to an integer, which is between 0 and 9 inclusive. The space size of JamNess State is $10^4$.
+The JamNess State is a representation of how busy the traffic is on that road
+(i.e. traffic jam-ness). Each car is given a weighting based on their distance
+from the intersection. Cars closer to the intersection have a greater weight
+than cars further away from the intersection. To calculate JamNess, we introduce
+an importance value of each car, denoted as $0.5^i$, where $i$ is the position
+of the car from the traffic lights (at Unit 49). For example, the importance of
+the car at Unit 46 is $0.5^3$, since it is 3 positions away from the lights. The
+sum of all the importance values on one road is between 0 and 0.9999999. Then,
+the JamNess is calculated as $sum * 10$ and rounded down to an integer, which is
+between 0 and 9 inclusive. The space size of JamNess State is $10^4$.
 
 \subsubsection{Occupancy State}
-The Occupancy State represents the presence of cars at each unit. As discussed above, each unit is marked as 0 or 1, there are $2^{48}$ states if all the units are counted. However, since the traffic lights can be switched every three timesteps, we can speculate that the closest three or four positions from the intersection are more important than the rest. Hence, we define two states, Occ\_3 and Occ\_4, which are represented by a 3-bit and 4-bit integer respectively, indicating the occupancy of the closest three or four positions. For example, a binary value 100 in Occ\_3 indicates the first position is occupied, while the second and the third are empty. A binary value 0101 in Occ\_4 means the second and the fourth positions are occupied, whilst the rest are not. Since there are four roads, the space size of Occ\_3 is $2^{12}$, and that of Occ\_4 is $2^{16}$.
+The Occupancy State represents the presence of cars at each unit. As discussed
+above, each unit is marked as 0 or 1, there are $2^{48}$ states if all the units
+are counted. However, since the traffic lights can be switched every three
+timesteps, we can speculate that the closest three or four positions from the
+intersection are more important than the rest. Hence, we define two states,
+Occ\_3 and Occ\_4, which are represented by a 3-bit and 4-bit integer
+respectively, indicating the occupancy of the closest three or four positions.
+For example, a binary value 100 in Occ\_3 indicates the first position is
+occupied, while the second and the third are empty. A binary value 0101 in
+Occ\_4 means the second and the fourth positions are occupied, whilst the rest
+are not. Since there are four roads, the space size of Occ\_3 is $2^{12}$, and
+that of Occ\_4 is $2^{16}$.
 
 \subsubsection{Density State}
-The Density State records the number of cars on the N closest positions from the intersection, where N is 3 in the implementation, since the traffic lights can only be switched every three timesteps. The number of cars in the closest three positions is between 0 and 3, so the space size of four roads is $4^4$ or $2^8$.
+The Density State records the number of cars on the N closest positions from the
+intersection, where N is 3 in the implementation, since the traffic lights can
+only be switched every three timesteps. The number of cars in the closest three
+positions is between 0 and 3, so the space size of four roads is $4^4$ or $2^8$.
 
-There is an extension of Density State (N=3). To help the controller predict the future traffic, we not only calculate the number of cars at the first three positions (i.e., from Unit 48 to 46), we also calculate the car number of the second three positions (i.e., from Unit 45 to 43). This extension is called Density\_6, as there are six positions involved. By constrast, Density State (N=3) is called Density\_3. The space size of this extension is $(4 * 4) ^{4}$, or $2^{16}$.
+There is an extension of Density State (N=3). To help the controller predict the
+future traffic, we not only calculate the number of cars at the first three
+positions (i.e., from Unit 48 to 46), we also calculate the car number of the
+second three positions (i.e., from Unit 45 to 43). This extension is called
+Density\_6, as there are six positions involved. By constrast, Density State
+(N=3) is called Density\_3. The space size of this extension is $(4 * 4) ^{4}$,
+or $2^{16}$.

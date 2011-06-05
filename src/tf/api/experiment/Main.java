@@ -9,6 +9,11 @@ import tf.api.model.TrafficModel;
 public class Main {
 
 	/**
+	 * Entry class for the command-line Traffic Simulator.
+	 * 
+	 * The Ultimate algorithm has been hard-coded for the CLI application.
+	 * Use the GUI for simulating other algorithms. 
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
